@@ -13,6 +13,7 @@ in {
   config = mkIf cfg.enable {
     vim = {
       startPlugins = [
+        "plenary"
         "obsidian-nvim"
         "vim-markdown"
         "tabular"

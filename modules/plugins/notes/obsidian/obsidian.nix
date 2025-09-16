@@ -28,7 +28,7 @@ in {
       setupOpts = mkPluginSetupOption "Obsidian.nvim" {
         workspace = {
           type = listOf str;
-          default = null;
+          default = [];
           description = "Directory in which an Obsidian vault is stored.";
         };
 
