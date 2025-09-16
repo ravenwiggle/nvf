@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib.options) mkEnableOption mkOption;
-  inherit (lib.types) bool str nullOr;
+  inherit (lib.types) bool str nullOr listOf;
   inherit (lib.modules) mkRenamedOptionModule;
   inherit (lib.nvim.types) mkPluginSetupOption;
 
@@ -26,6 +26,12 @@ in {
       enable = mkEnableOption "complementary neovim plugins for Obsidian editor";
 
       setupOpts = mkPluginSetupOption "Obsidian.nvim" {
+        workspace = {
+          type = listOf str;
+          default = null;
+          description = "Directory in which an Obsidian vault is stored.";
+        };
+
         daily_notes = {
           folder = mkOption {
             type = nullOr str;
